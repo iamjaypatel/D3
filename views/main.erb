@@ -1,0 +1,45 @@
+<html>
+  <head></head>
+  <body>
+    <% if @generate_table.nil? %>
+      <form>
+        True symbol: <input type='text' name='true'/> <br>
+        False symbol: <input type='text' name='false'/> <br>
+        Size (2^x): <input type='text' name='size'/> <br>
+        <input type='submit' value='Show truth table' name='table'/><br>
+        <a href="/"> Reload page</a>
+      </form>
+    <%end%>
+
+    <%if !@generate_table.nil?%>
+      <table style = "width:10%">
+        <tr>
+          <%(@size_table.to_i-1).downto(0) do |i|%>
+            <th><p><%= i%></p></th>
+          <%end%>
+          <th>AND</th>
+          <th>OR</th>
+          <th>NAND</th>
+          <th>NOR</th>
+        </tr>
+        <% 0.upto(@operator.length-1) do |i| %>
+					<% if i % (@size_table+4) == 0 %>
+						<tr>
+					<% end %>
+
+					<% if @operator[i].to_i == 1 %>
+						<td><p><%= @true_symbol%><p></td>
+					<% else %>
+						<td><p><%= @false_symbol%><p></td>
+					<% end %>
+
+					<% if i % (@size_table+4) == (@size_table+3) %>
+						</tr>
+					<% end %>
+
+				<% end %>
+			</table>
+				<a href="/">Back to main</a>
+    <%end%>
+  </body>
+</html>
