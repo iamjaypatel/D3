@@ -90,28 +90,28 @@ def gen_truth_table
     	end
     end
 
-    #AND
+    #AND Operation
     if @letter == op.size
     	@operator << 1
     else
     	@operator << 0
     end
 
-    #OR
+    #OR Operation
     if @letter > 0
     	@operator << 1
     else
     	@operator << 0
     end
 
-    #NAND
+    #NAND Operation N(AND)
     if @letter == op.size
         @operator << 0
     else
         @operator << 1
     end
 
-    #NOR
+    #NOR Operation N(OR)
     if @letter > 0
         @operator << 0
     else
