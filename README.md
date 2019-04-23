@@ -6,3 +6,5 @@
   - Has total 22 tests
     - Passed: 22
     - Failed: 0
+# Grade
+- 100/100
